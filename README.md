@@ -85,6 +85,11 @@ requirements.txt
 ``` makefile
 fastapi[all]
 ``` 
+### used laibraries :
+
+fastapi
+Pydantic: Schema Validation. 
+
 ### Notes
 Make sure to always activate the virtual environment before running the application.
 If you make changes to the dependencies, remember to update requirements.txt by running `pip freeze > requirements.txt`.
