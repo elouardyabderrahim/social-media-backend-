@@ -46,10 +46,11 @@ pip install -r requirements.txt
 ``` 
 
 ### 5. Run the Application
-Start the FastAPI application using Uvicorn:
+Start the FastAPI application using fastapi cli:
+for dev mode 
 
 ```  bash
-fastapi dev main.py 
+fastapi dev app\main.py 
 ```
 
  Serving at: http://127.0.0.1:8000                
@@ -87,8 +88,9 @@ fastapi[all]
 ``` 
 ### used laibraries :
 
-fastapi
-Pydantic: Schema Validation. 
+- fastapi
+- Pydantic: Schema Validation. 
+- psycopg
 
 ### Notes
 Make sure to always activate the virtual environment before running the application.
