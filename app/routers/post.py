@@ -48,3 +48,55 @@ def create_post(post:schema.PostCreate,db: Session=Depends(get_db)):
     return created_post
 
 
+@router.patch("/{post_id}",response_model=schema.Post)
+def patch_post(post_id:int,post_updated:schema.PostUpdate,db: Session = Depends(get_db)):
+
+    post = db.query(models.Post).filter(models.Post.id==post_id).first()
+
+    if  not post:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"the post with the id {post_id} not found")
+    
+    fields_to_update=post_updated.dict(exclude_unset=True)  # Get only the fields that were set in the request
+    
+    for key, value in fields_to_update.items():
+        setattr(post, key, value)
+    
+    db.commit()
+    db.refresh(post) # database to refresh column-oriented attributes with the current value available in the current transaction.
+    
+    
+    return post
+    
+
+
+@router.put("/{id}", response_model=schema.Post)
+def update_post(id: int, updated_post: schema.PostCreate, db: Session = Depends(get_db)):
+
+    # cursor.execute("""UPDATE posts SET title = %s, content = %s, published = %s WHERE id = %s RETURNING *""",
+    #                (post.title, post.content, post.published, str(id)))
+
+    # updated_post = cursor.fetchone()
+    # conn.commit()
+
+    post_query = db.query(models.Post).filter(models.Post.id == id)
+
+    post = post_query.first()
+
+    if post == None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"post with id: {id} does not exist")
+
+    post_query.update(updated_post.dict(), synchronize_session=False)
+    """
+    synchronize_session=False:
+
+    This is an argument specific to SQLAlchemy's update method. It controls whether the session
+    should be synchronized with the changes made by the update statement.
+    When set to False, it means that SQLAlchemy does not need to synchronize 
+    the session state with the database changes. This is typically used for performance reasons, especially when you are making bulk updates.
+    
+    """
+
+    db.commit()
+
+    return post_query.first()
