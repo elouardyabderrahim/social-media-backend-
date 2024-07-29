@@ -100,3 +100,19 @@ def update_post(id: int, updated_post: schema.PostCreate, db: Session = Depends(
     db.commit()
 
     return post_query.first()
+
+
+@router.delete("/{id_post}",status_code=status.HTTP_204_NO_CONTENT)
+def delete_post(id_post: int, db: Session = Depends(get_db)):
+    post_query = db.query(models.Post).filter(models.Post.id == id_post)
+
+    print(post_query)
+    if post_query.first()==None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"post with id: {str(id)} does not exist")
+    
+    post_query.delete(synchronize_session=False)
+    db.commit()
+    # db.refresh()
+    
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
