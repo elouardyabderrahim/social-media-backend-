@@ -19,8 +19,23 @@ async def get_all_posts(db: Session = Depends(get_db)):
         posts = db.query(models.Post).all()
         return posts
     except Exception as e:
-        raise HTTPException(status_code=500, detail="An error occurred while fetching posts")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="An error occurred while fetching posts")
 
+
+@router.get("/{post_id}",response_model=schema.Post)
+async def get_post(post_id:int,db: Session = Depends(get_db)):
+
+    post = db.query(models.Post).filter(models.Post.id==post_id)
+
+    
+    if  not post:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"the post with the id {post_id} not found")
+    
+    return post
+    
+    
+    
+   
 
 @router.post("/",status_code=status.HTTP_201_CREATED,response_model=schema.Post)
 def create_post(post:schema.PostCreate,db: Session=Depends(get_db)):
