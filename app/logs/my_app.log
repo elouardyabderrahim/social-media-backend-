@@ -1,0 +1,33 @@
+[DEBUG|log_main|L27] 2024-08-21T15:10:42+0100: debug message
+[INFO|log_main|L28] 2024-08-21T15:10:42+0100: info message
+[WARNING|log_main|L29] 2024-08-21T15:10:42+0100: warning message
+[ERROR|log_main|L30] 2024-08-21T15:10:42+0100: error message
+[CRITICAL|log_main|L31] 2024-08-21T15:10:42+0100: critical message
+[ERROR|log_main|L35] 2024-08-21T15:10:42+0100: exception message
+Traceback (most recent call last):
+  File "c:\Users\pc\Desktop\api\social-media-backend-\app\log_main.py", line 33, in main
+    1 / 0
+    ~~^~~
+ZeroDivisionError: division by zero
+[DEBUG|log_main|L27] 2024-08-21T15:19:26+0100: debug message
+[INFO|log_main|L28] 2024-08-21T15:19:26+0100: info message
+[WARNING|log_main|L29] 2024-08-21T15:19:26+0100: warning message
+[ERROR|log_main|L30] 2024-08-21T15:19:26+0100: error message
+[CRITICAL|log_main|L31] 2024-08-21T15:19:26+0100: critical message
+[ERROR|log_main|L35] 2024-08-21T15:19:26+0100: exception message
+Traceback (most recent call last):
+  File "c:\Users\pc\Desktop\api\social-media-backend-\app\log_main.py", line 33, in main
+    1 / 0
+    ~~^~~
+ZeroDivisionError: division by zero
+[DEBUG|log_main|L27] 2024-08-21T15:39:00+0100: debug message
+[INFO|log_main|L28] 2024-08-21T15:39:00+0100: info message
+[WARNING|log_main|L29] 2024-08-21T15:39:00+0100: warning message
+[ERROR|log_main|L30] 2024-08-21T15:39:00+0100: error message
+[CRITICAL|log_main|L31] 2024-08-21T15:39:00+0100: critical message
+[ERROR|log_main|L35] 2024-08-21T15:39:00+0100: exception message
+Traceback (most recent call last):
+  File "c:\Users\pc\Desktop\api\social-media-backend-\app\log_main.py", line 33, in main
+    1 / 0
+    ~~^~~
+ZeroDivisionError: division by zero
