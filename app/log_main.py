@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)  # __name__ is a common choice
 
 
 def setup_logging():
-    config_file = pathlib.Path("./app/logs/log_config/config_filter_stdout_stderr.json")
+    config_file = pathlib.Path("./app/logs/log_config/queued-stderr-json-file.json")
     with open(config_file) as f_in:
         config = json.load(f_in)
 
