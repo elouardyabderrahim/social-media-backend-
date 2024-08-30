@@ -1,2 +1,6 @@
 fastapi[all]
-"psycopg[binary]"
+psycopg[binary]
+sqlalchemy
+passlib
+psycopg2
+pydantic<2.0.0
