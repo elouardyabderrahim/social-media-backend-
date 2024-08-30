@@ -31,3 +31,4 @@ Traceback (most recent call last):
     1 / 0
     ~~^~~
 ZeroDivisionError: division by zero
+[INFO|main|L22] 2024-08-21T18:20:52+0100: info message.........

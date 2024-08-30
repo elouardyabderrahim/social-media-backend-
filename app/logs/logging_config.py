@@ -8,7 +8,7 @@ import pathlib
 
 logger = logging.getLogger(__name__)  # __name__ is a common choice
 
-
+# C:\Users\pc\Desktop\api\social-media-backend-\app\logs\log_config\config_filter_stdout_stderr.json
 def setup_logging():
     config_file = pathlib.Path("./app/logs/log_config/queued-stderr-json-file.json")
     with open(config_file) as f_in:
@@ -21,19 +21,19 @@ def setup_logging():
         atexit.register(queue_handler.listener.stop)
 
 
-def main():
-    setup_logging()
-    logging.basicConfig(level="INFO")
-    logger.debug("debug message", extra={"x": "hello"}) # "extra" we can use it to add more information to our json logs
-    logger.info("info message")
-    logger.warning("warning message")
-    logger.error("error message")
-    logger.critical("critical message")
-    try:
-        1 / 0
-    except ZeroDivisionError:
-        logger.exception("exception message")
+# def main():
+#     setup_logging()
+#     logging.basicConfig(level="INFO")
+#     logger.debug("debug message", extra={"x": "hello"}) # "extra" we can use it to add more information to our json logs
+#     logger.info("info message")
+#     logger.warning("warning message")
+#     logger.error("error message")
+#     logger.critical("critical message")
+#     try:
+#         1 / 0
+#     except ZeroDivisionError:
+#         logger.exception("exception message")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
